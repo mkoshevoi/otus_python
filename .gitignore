@@ -1,4 +1,6 @@
 # Byte-compiled / optimized / DLL files
+otus_python/
+.idea/
 __pycache__/
 *.py[cod]
 *$py.class
