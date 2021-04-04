@@ -22,7 +22,7 @@ PRIME = "prime"
 ERR = "error"
 
 
-def prime_check(lizt:list):
+def prime_check(lizt):
     res = []
     for num in lizt:
         flag = False
@@ -41,15 +41,38 @@ def prime_check(lizt:list):
             res.append(num)
     return res
 
+def elem_check(num):
+    flag = False
+    # prime numbers are greater than 1
+    if num > 1:
+        # check for factors
+        for i in range(2, num):
+            if (num % i) == 0:
+                # if factor is found, set flag to True
+                flag = True
+                # break out of loop
+                break
+
+    # check if flag is True
+    if not flag:
+        return True
+    elif flag:
+        return False
 
 
-def filter_numbers(lict, type=EVEN):
+
+
+
+
+def filter_numbers(lict:list, type=EVEN):
     if type == EVEN:
         return [num for num in lict if num%2==0]
     elif type == ODD:
         return [num for num in lict if num%2==1]
     elif type == PRIME:
-        return [num for num in prime_check(lict)]
+        return [num for num in list(filter(elem_check, lict))]
+        #return [num for num in prime_check(lict)]
+
     else:
         pass
 
